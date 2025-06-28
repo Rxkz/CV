@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rikhil Prakash - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+        
+        .heading-font { font-family: 'Playfair Display', serif; }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .elegant-gradient {
+            background: linear-gradient(135deg, #d4af37, #ffd700, #b8860b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .luxury-glow {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .floating { animation: float 4s ease-in-out infinite; }
+        
+        @keyframes luxury-pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.5); }
+        }
+        
+        .luxury-pulse { animation: luxury-pulse 3s ease-in-out infinite; }
+        
+        .skill-tag {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 14px;
+            height: 14px;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 6px;
+            top: 2rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(to bottom, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0.2));
+        }
+        
+        .location-tag {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .location-tag:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(255, 215, 0, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .elegant-button {
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .elegant-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .elegant-button:hover::before {
+            left: 100%;
+        }
+        
+        .elegant-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        @media print {
+            body { 
+                background: white !important;
+                -webkit-print-color-adjust: exact; 
+            }
+            .glassmorphism {
+                background: white !important;
+                backdrop-filter: none !important;
+                border: 1px solid #e5e7eb !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        
+        <!-- Hero Section -->
+        <div class="text-center mb-20">
+            <div class="floating inline-block mb-8">
+                <div class="w-40 h-40 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-800 text-5xl font-bold luxury-pulse border-4 border-yellow-400/50">
+                    RP
+                </div>
+            </div>
+            <h1 class="heading-font text-8xl font-bold text-gray-800 mb-6">
+                RIKHIL <span class="elegant-gradient">PRAKASH</span>
+            </h1>
+            <div class="text-gray-600 text-2xl mb-10 font-light">
+                Software Engineer & Multi-Industry Professional
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-gray-700 mb-8">
+                <div class="flex items-center gap-3 bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-gray-200">
+                    <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+                    <span>📱 0224100289</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-gray-200">
+                    <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+                    <span>✉️ rikhilprakash383@gmail.com</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-gray-200">
+                    <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+                    <span>📍 Auckland, New Zealand</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-gray-200">
+                    <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+                    <span>🎂 Age 22</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="glassmorphism rounded-3xl p-10 mb-20 card-hover text-center">
+            <h2 class="heading-font text-5xl font-bold text-gray-800 mb-8">
+                <span class="elegant-gradient">About Me</span>
+            </h2>
+            <p class="text-gray-600 text-xl leading-relaxed font-light max-w-4xl mx-auto">
+                A passionate 22-year-old technology enthusiast currently pursuing a Bachelor's degree in Software Engineering while maintaining a diverse professional portfolio across multiple industries. My journey spans from commercial cleaning operations to automotive compliance, hospitality management to advanced IT systems engineering. What sets me apart is my ability to adapt quickly, learn continuously, and bring fresh perspectives to every challenge. Fluent in both Hindi and English, I offer flexible scheduling options and an unwavering commitment to excellence.
+            </p>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="glassmorphism rounded-3xl p-10 mb-20">
+            <h2 class="heading-font text-5xl font-bold text-gray-800 mb-12 text-center">
+                <span class="elegant-gradient">Professional Experience</span>
+            </h2>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <div class="timeline-line"></div>
+                
+                <!-- Crest Clean -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-8 card-hover border border-gray-200">
+                        <div class="text-center mb-6">
+                            <h3 class="heading-font text-4xl font-bold text-gray-800 mb-2">Commercial Cleaner</h3>
+                            <p class="text-yellow-600 font-medium text-xl">CREST CLEAN</p>
+                            <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 px-6 py-3 rounded-full text-black font-semibold inline-block mt-3">
+                                March 2024 - July 18, 2025
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8 text-center">
+                            <h4 class="text-gray-800 font-semibold mb-6 text-xl">Premium Locations Managed</h4>
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl mx-auto">
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">Anzor New Zealand</div>
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">Samsung Electronics</div>
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">VTNZ</div>
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">Tepuna Clinic</div>
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">Village Medical</div>
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">Cheil Worldwide</div>
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">Kalmar Constructions</div>
+                                <div class="location-tag px-4 py-3 rounded-xl text-gray-700 text-sm text-center">Asbuilt Construction</div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Key Responsibilities</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Maintained exceptional cleaning standards across diverse commercial environments</li>
+                                    <li>• Orchestrated efficient cleaning schedules across multiple premium locations</li>
+                                    <li>• Ensured strict compliance with health and safety regulations</li>
+                                    <li>• Customized cleaning protocols for specialized facility requirements</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Professional Achievements</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Successfully managed operations across 9+ high-profile commercial sites</li>
+                                    <li>• Developed advanced time management and logistics coordination skills</li>
+                                    <li>• Gained specialized expertise in medical and corporate facility management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fasttrack Automotive -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-8 card-hover border border-gray-200">
+                        <div class="text-center mb-6">
+                            <h3 class="heading-font text-4xl font-bold text-gray-800 mb-2">Car Compliance Trimmer</h3>
+                            <p class="text-yellow-600 font-medium text-xl">FASTTRACK AUTOMOTIVE COMPLIANCE</p>
+                            <div class="bg-gradient-to-r from-gray-400 to-gray-600 px-6 py-3 rounded-full text-white font-semibold inline-block mt-3">
+                                June 2023 - March 2024
+                            </div>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Core Responsibilities</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Precision interior and under-body compliance trimming for imported vehicles</li>
+                                    <li>• Ensured vehicles met stringent New Zealand compliance standards</li>
+                                    <li>• Maintained rigorous quality control throughout compliance processes</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Skills Developed</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Mastered performance under high-pressure automotive environments</li>
+                                    <li>• Developed comprehensive expertise in automotive compliance procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KFC -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-8 card-hover border border-gray-200">
+                        <div class="text-center mb-6">
+                            <h3 class="heading-font text-4xl font-bold text-gray-800 mb-2">Culinary Specialist</h3>
+                            <p class="text-yellow-600 font-medium text-xl">KFC SYLVIA PARK</p>
+                            <div class="bg-gradient-to-r from-gray-400 to-gray-600 px-6 py-3 rounded-full text-white font-semibold inline-block mt-3">
+                                March 2023 - November 2023
+                            </div>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Operational Excellence</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Managed weekend day shift culinary operations</li>
+                                    <li>• Executed food preparation and quality control protocols</li>
+                                    <li>• Maintained exceptional kitchen hygiene and safety standards</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Professional Growth</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Enhanced performance capabilities in fast-paced environments</li>
+                                    <li>• Strengthened teamwork and communication competencies</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PABX Engineer -->
+                <div class="timeline-item mb-12">
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-8 card-hover border border-gray-200">
+                        <div class="text-center mb-6">
+                            <h3 class="heading-font text-4xl font-bold text-gray-800 mb-2">PABX Systems Engineer</h3>
+                            <p class="text-yellow-600 font-medium text-xl">DATEC FIJI LIMITED @ Westpac</p>
+                            <div class="bg-gradient-to-r from-gray-400 to-gray-600 px-6 py-3 rounded-full text-white font-semibold inline-block mt-3">
+                                September 2022 - November 2022
+                            </div>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Technical Expertise</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Managed IP phone extension deployments for Westpac Fiji & PNG</li>
+                                    <li>• Provided advanced IT technical support services</li>
+                                    <li>• Engineered and configured server infrastructure</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Technical Mastery</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Mastered PABX systems with advanced code and tie line management</li>
+                                    <li>• Developed server building expertise (hardware/software) including Linux</li>
+                                    <li>• Advanced IT support and troubleshooting capabilities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IT Support -->
+                <div class="timeline-item">
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-8 card-hover border border-gray-200">
+                        <div class="text-center mb-6">
+                            <h3 class="heading-font text-4xl font-bold text-gray-800 mb-2">IT Support Specialist</h3>
+                            <p class="text-yellow-600 font-medium text-xl">FIJI REVENUE AND CUSTOMS SERVICE</p>
+                            <div class="bg-gradient-to-r from-gray-400 to-gray-600 px-6 py-3 rounded-full text-white font-semibold inline-block mt-3">
+                                May 2022 - August 2022
+                            </div>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Foundation Role</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Level 1 IT technical support specialist</li>
+                                    <li>• IT inventory and records management</li>
+                                    <li>• Daily troubleshooting and problem resolution</li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="text-gray-800 font-semibold mb-4 text-lg">Core Development</h4>
+                                <ul class="text-gray-600 space-y-2 font-light">
+                                    <li>• Established foundational IT support and troubleshooting skills</li>
+                                    <li>• Gained comprehensive IT inventory management experience</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Skills Grid -->
+        <div class="grid lg:grid-cols-2 gap-12 mb-20">
+            <!-- Education -->
+            <div class="glassmorphism rounded-3xl p-10 card-hover">
+                <h2 class="heading-font text-4xl font-bold text-gray-800 mb-8 text-center">
+                    <span class="elegant-gradient">Academic Excellence</span>
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-white/80 p-6 rounded-2xl border border-gray-200 card-hover text-center">
+                        <h3 class="heading-font font-bold text-gray-800 text-xl mb-2">Bachelor of Software Engineering</h3>
+                        <p class="text-yellow-600 font-medium">Yoobee College, New Zealand</p>
+                        <p class="text-gray-500 text-sm mt-2">2024 - Present</p>
+                    </div>
+                    
+                    <div class="bg-white/80 p-6 rounded-2xl border border-gray-200 card-hover text-center">
+                        <h3 class="heading-font font-bold text-gray-800 text-xl mb-2">Level 5 Information Systems</h3>
+                        <p class="text-yellow-600 font-medium">Techtorium NZ</p>
+                        <p class="text-gray-500 text-sm mt-2">2023 - Completed</p>
+                    </div>
+                    
+                    <div class="bg-white/80 p-6 rounded-2xl border border-gray-200 card-hover text-center">
+                        <h3 class="heading-font font-bold text-gray-800 text-xl mb-2">Diploma IT Networking</h3>
+                        <p class="text-yellow-600 font-medium">Fiji National University</p>
+                        <p class="text-gray-500 text-sm mt-2">2021 - Graduated 2022 (TAFE NSW)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="glassmorphism rounded-3xl p-10 card-hover">
+                <h2 class="heading-font text-4xl font-bold text-gray-800 mb-8 text-center">
+                    <span class="elegant-gradient">Core Competencies</span>
+                </h2>
+                
+                <div class="mb-8 text-center">
+                    <h3 class="text-gray-800 font-semibold mb-4 text-lg">Technical Expertise</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">IT Support & Troubleshooting</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">PABX Systems</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Server Engineering</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Linux Systems</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Network Administration</span>
+                    </div>
+                </div>
+
+                <div class="mb-8 text-center">
+                    <h3 class="text-gray-800 font-semibold mb-4 text-lg">Professional Skills</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Multi-site Management</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Quality Assurance</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Project Coordination</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Client Relations</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-gray-700 text-sm font-medium">Continuous Learning</span>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="text-gray-800 font-semibold mb-4 text-lg">Languages</h3>
+                    <div class="flex justify-center gap-4">
+                        <span class="skill-tag px-6 py-3 rounded-xl text-gray-700 font-medium">English (Native)</span>
+                        <span class="skill-tag px-6 py-3 rounded-xl text-gray-700 font-medium">Hindi (Native)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interests & References -->
+        <div class="grid lg:grid-cols-2 gap-12 mb-20">
+            <!-- Interests -->
+            <div class="glassmorphism rounded-3xl p-10 card-hover">
+                <h2 class="heading-font text-4xl font-bold text-gray-800 mb-8 text-center">
+                    <span class="elegant-gradient">Personal Interests</span>
+                </h2>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/80 p-6 rounded-2xl text-center card-hover border border-gray-200">
+                        <div class="text-3xl mb-3">✈️</div>
+                        <span class="text-gray-700 font-medium">Travel & Culture</span>
+                    </div>
+                    <div class="bg-white/80 p-6 rounded-2xl text-center card-hover border border-gray-200">
+                        <div class="text-3xl mb-3">🚗</div>
+                        <span class="text-gray-700 font-medium">Automotive</span>
+                    </div>
+                    <div class="bg-white/80 p-6 rounded-2xl text-center card-hover border border-gray-200">
+                        <div class="text-3xl mb-3">🥊</div>
+                        <span class="text-gray-700 font-medium">Boxing</span>
+                    </div>
+                    <div class="bg-white/80 p-6 rounded-2xl text-center card-hover border border-gray-200">
+                        <div class="text-3xl mb-3">⚽</div>
+                        <span class="text-gray-700 font-medium">Football</span>
+                    </div>
+                    <div class="bg-white/80 p-6 rounded-2xl text-center card-hover border border-gray-200">
+                        <div class="text-3xl mb-3">💪</div>
+                        <span class="text-gray-700 font-medium">Fitness</span>
+                    </div>
+                    <div class="bg-white/80 p-6 rounded-2xl text-center card-hover border border-gray-200">
+                        <div class="text-3xl mb-3">💻</div>
+                        <span class="text-gray-700 font-medium">Technology</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- References -->
+            <div class="glassmorphism rounded-3xl p-10 card-hover">
+                <h2 class="heading-font text-4xl font-bold text-gray-800 mb-8 text-center">
+                    <span class="elegant-gradient">Professional References</span>
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-white/80 p-6 rounded-2xl border border-gray-200 card-hover text-center">
+                        <h3 class="heading-font font-bold text-gray-800 text-xl">Shivneel Prasad</h3>
+                        <p class="text-yellow-600 text-lg font-medium">Floor Manager</p>
+                        <p class="text-gray-500 text-sm">Fasttrack Automotive Compliance</p>
+                        <p class="text-gray-600 text-sm flex items-center justify-center mt-3">
+                            <span class="mr-2">📱</span> 0273783612
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white/80 p-6 rounded-2xl border border-gray-200 card-hover text-center">
+                        <h3 class="heading-font font-bold text-gray-800 text-xl">Mark Vidal</h3>
+                        <p class="text-yellow-600 text-lg font-medium">General Manager</p>
+                        <p class="text-gray-500 text-sm">KFC Sylvia Park</p>
+                        <p class="text-gray-600 text-sm flex items-center justify-center mt-3">
+                            <span class="mr-2">📱</span> 0223274422
+                        </p>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <p class="text-gray-400 text-sm italic">Additional references available upon request</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer CTA -->
+        <div class="text-center">
+            <div class="glassmorphism rounded-3xl p-12 card-hover">
+                <h2 class="heading-font text-5xl font-bold text-gray-800 mb-6">
+                    <span class="elegant-gradient">Let's Connect</span>
+                </h2>
+                <p class="text-gray-600 text-xl mb-8 max-w-2xl mx-auto font-light">
+                    Ready to bring dedication, versatility, and fresh perspectives to your team. Let's create something extraordinary together.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="mailto:rikhilprakash383@gmail.com" class="elegant-button px-8 py-4 rounded-full text-black font-semibold text-lg hover:scale-105 transition-transform">
+                        📧 Email Me
+                    </a>
+                    <a href="tel:0224100289" class="elegant-button px-8 py-4 rounded-full text-black font-semibold text-lg hover:scale-105 transition-transform">
+                        📞 Call Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effects to skill tags
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 150);
+                });
+            });
+
+            // Parallax effect for hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.floating');
+                if (parallax) {
+                    const speed = scrolled * 0.3;
+                    parallax.style.transform = `translateY(${speed}px)`;
+                }
+            });
+
+            // Add smooth reveal animation on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            // Observe all card elements
+            document.querySelectorAll('.glassmorphism').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+            
